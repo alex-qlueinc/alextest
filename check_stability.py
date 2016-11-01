@@ -27,10 +27,6 @@ wptcommandline = None
 wptrunner = None
 
 
-reload(sys)
-sys.setdefaultencoding('utf8')
-
-
 logger = logging.getLogger(os.path.splitext(__file__)[0])
 
 
@@ -408,10 +404,10 @@ def process_results(log, iterations):
 
 
 def markdown_adjust(s):
-    s = s.replace('\t', u'\u2409')
-    s = s.replace('\n', u'\u240a')
-    s = s.replace('\r', u'\u240d')
-    s = s.replace('`',  u'\u2035')
+    s = s.replace('\t', u'\\t')
+    s = s.replace('\n', u'\\n')
+    s = s.replace('\r', u'\\r')
+    s = s.replace('`',  u'\\`')
     return s
 
 
